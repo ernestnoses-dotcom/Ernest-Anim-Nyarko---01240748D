@@ -7,18 +7,23 @@ Welcome to GDB Online.
 
 *******************************************************************************/
 #include <iostream>
-using namespace std;
+#include <vector>
+#include <algorithm>
 
-// Function to sum two integers
-int sum(int x, int y) {
-    return x + y;
-}   
+std::vector<std::string> reverseStringList(const std::vector<std::string>& strings) {
+    std::vector<std::string> reversedStrings = strings;
+    for (std::string& str : reversedStrings) {
+        std::reverse(str.begin(), str.end());
+    }
+    return reversedStrings;
+}
 
+// Example usage
 int main() {
-    int a, b;
-    cout << "Enter two integers:";
-    cin >> a >> b;
-    cout << "sum: "<< sum(a, b)<<endl;
-
+    std::vector<std::string> words = {"hello", "world", "cpp"};
+    std::vector<std::string> reversed = reverseStringList(words);
+    for (const std::string& word : reversed) {
+        std::cout << word << " ";
+    }
     return 0;
 }
